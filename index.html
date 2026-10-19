@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#fff6e7" />
+<meta name="description" content="윤경태러브하우스 가족 초대장 · 2026년 11월 21일 토요일 오후 5시" />
+<title>🏡 윤경태러브하우스 초대장 ♡</title>
+<link rel="preload" as="image" href="assets/crayon-invitation.png" />
+<style>
+:root{font-family:system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#543a34;background:#fff6e7}*{box-sizing:border-box}body{margin:0;min-height:100vh}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}main{max-width:550px;margin:auto;box-shadow:0 8px 50px #9a694321;background:#fff6e7}.art{position:relative;width:100%;line-height:0}.art img{display:block;width:100%;height:auto}.hotspot{position:absolute;display:block;appearance:none;background:transparent;border:0;padding:0;cursor:pointer;touch-action:manipulation;border-radius:24px}.hotspot:focus-visible{outline:3px dashed #ae5a7a;outline-offset:1px;background:#ffc5d455}.date-hotspot{left:16%;top:25.3%;width:68%;height:9%}.place-hotspot{left:23%;top:36.0%;width:57%;height:8%}.house-hotspot{left:13%;top:46%;width:75%;height:25%}.calendar-hotspot{left:19%;top:72.5%;width:62%;height:6.1%}.tmap-hotspot{left:6%;top:79.0%;width:44%;height:7.0%}.naver-hotspot{left:51%;top:79.0%;width:44%;height:7.0%}.extra{margin:0;padding:12px 20px 25px;text-align:center;font-size:12px;color:#92786e;line-height:1.6}.dialog{position:fixed;inset:0;background:#4f38357a;display:none;align-items:center;justify-content:center;padding:22px;z-index:3}.dialog.visible{display:flex}.dialog-panel{position:relative;width:min(100%,390px);border-radius:28px;padding:28px 22px 22px;background:#fffaf1;box-shadow:0 20px 75px #261d1a45;text-align:center;border:3px solid #f7c2af;animation:rise .18s ease-out}@keyframes rise{from{transform:translateY(14px);opacity:.5}to{transform:translateY(0);opacity:1}}.dialog h2{font-size:23px;margin:0 0 12px}.dialog p{line-height:1.7;font-size:15px;margin:8px 0}.address{font-weight:800;font-size:20px!important;word-break:keep-all;color:#795146}.hint{font-size:12px!important;color:#806d68}.actions{display:grid;gap:10px;margin-top:19px}.action{display:block;border:0;border-radius:15px;padding:14px 12px;text-align:center;text-decoration:none;background:#f7bfc8;color:#563840;font-weight:750;line-height:1.4}.action.green{background:#d4eab9;color:#3b5831}.action.blue{background:#c5e3f7;color:#315b76}.action.soft{background:#f3e5d8;color:#684e43}.close{position:absolute;right:13px;top:11px;border:0;border-radius:50%;width:36px;height:36px;background:#f5e4db;font-size:22px;color:#735b4e}body.lock{overflow:hidden}@media(prefers-reduced-motion:reduce){.dialog-panel{animation:none}}
+</style>
+</head>
+<body>
+<main>
+  <div class="art">
+    <img src="assets/crayon-invitation.png" alt="크레파스로 그린 윤경태러브하우스 가족 초대장. 2026년 11월 21일 토요일 오후 5시. 함께 즐거운 시간 보내요!" />
+    <button class="hotspot date-hotspot" aria-label="초대 날짜와 시간을 캘린더에 저장" data-open="calendar"></button>
+    <button class="hotspot place-hotspot" aria-label="윤경태러브하우스 상세 주소와 지도 보기" data-open="address"></button>
+    <button class="hotspot house-hotspot" aria-label="그림 속 부부와 집을 터치하여 상세 주소 보기" data-open="address"></button>
+    <button class="hotspot calendar-hotspot" aria-label="캘린더에 저장하기" data-open="calendar"></button>
+    <button class="hotspot tmap-hotspot" aria-label="티맵에서 아파트 찾기" data-open="tmap"></button>
+    <button class="hotspot naver-hotspot" aria-label="네이버지도에서 아파트 보기" data-open="naver"></button>
+  </div>
+  <p class="extra">그림 속 우리 둘이나 집을 톡 눌러봐요! 🏠♡<br />지도에는 아파트 위치가 표시되고, 상세 동·호수는 초대장에서 확인할 수 있어요.</p>
+</main>
+<div id="dialog" class="dialog" role="presentation" aria-hidden="true">
+ <section class="dialog-panel" role="dialog" aria-modal="true" aria-labelledby="dialog-title" tabindex="-1">
+  <button type="button" id="close" class="close" aria-label="닫기">×</button>
+  <h2 id="dialog-title"></h2>
+  <div id="dialog-body"></div>
+  <div id="dialog-actions" class="actions"></div>
+ </section>
+</div>
+<script>
+(() => {
+ 'use strict';
+ const NAVER_URL='https://naver.me/xrz5P8ZK';
+ const ADDRESS='부산광역시 남구 문현삼성아파트';
+ const BUILDING='부산 문현삼성아파트';
+ const TM_SEARCH='tmap://search?name='+encodeURIComponent(BUILDING);
+ const WEB_SEARCH='https://www.google.com/search?q='+encodeURIComponent('티맵 '+BUILDING);
+ const GCAL='https://calendar.google.com/calendar/render?action=TEMPLATE&'+new URLSearchParams({text:'🏡 윤경태러브하우스 가족 모임',dates:'20261121T170000/20261121T210000',ctz:'Asia/Seoul',details:'가족들과 함께하는 즐거운 시간! 🧡\n문현삼성아파트\n지도: '+NAVER_URL,location:ADDRESS}).toString();
+ const dialog=document.getElementById('dialog'),panel=dialog.querySelector('.dialog-panel'),title=document.getElementById('dialog-title'),body=document.getElementById('dialog-body'),actions=document.getElementById('dialog-actions');
+ let previousFocus=null;
+ const btn=(text,cls,click)=>{const b=document.createElement('button');b.type='button';b.className='action '+cls;b.textContent=text;b.addEventListener('click',click);actions.append(b);return b};
+ const link=(text,cls,href)=>{const a=document.createElement('a');a.className='action '+cls;a.href=href;a.textContent=text;a.target='_blank';a.rel='noopener noreferrer';actions.append(a);return a};
+ function close(){dialog.classList.remove('visible');dialog.setAttribute('aria-hidden','true');document.body.classList.remove('lock');previousFocus?.focus()}
+ function show(kind){previousFocus=document.activeElement;title.textContent='';body.replaceChildren();actions.replaceChildren();
+  const p=(s,cl='')=>{let node=document.createElement('p');node.textContent=s;node.className=cl;body.append(node)};
+  if(kind==='address'){
+   title.textContent='🏡 우리 집은 여기!';p('문현삼성아파트','address');p('상세 동·호수는 가족에게 따로 알려드릴게요 ♡');btn('📋 주소 복사','soft',()=>copy(ADDRESS));link('🟢 네이버지도에서 보기','green',NAVER_URL);btn('🚙 티맵에서 찾기','blue',openTmap);
+  } else if(kind==='calendar'){
+   title.textContent='📅 날짜 잊지 않기!';p('2026년 11월 21일 (토)');p('오후 5:00 ~ 오후 9:00','address');p('휴대폰 캘린더에 모임을 저장해요.');link('🍎 iPhone · 기본 캘린더용 일정 파일','soft','invitation.ics');link('🗓️ Google 캘린더에 추가','green',GCAL);p('아이폰은 일정 파일을 연 뒤 추가를 눌러주세요. 안드로이드에서는 Google 캘린더 버튼을 추천해요.','hint');
+  } else if(kind==='tmap'){
+   title.textContent='🚙 티맵으로 찾아오기';p('문현삼성아파트를 티맵에서 검색해요.');btn('티맵 앱 실행하기','blue',openTmap);btn('📋 목적지 검색어 복사','soft',()=>copy(BUILDING));link('네이버지도에서 대신 확인','green',NAVER_URL);p('티맵 앱이 설치되어 있지 않거나 카카오톡 브라우저에서 열리지 않으면 검색어를 복사해 티맵 앱에서 찾아주세요.','hint');
+  } else if(kind==='naver'){
+   title.textContent='🟢 네이버지도 길찾기';p('공유된 아파트 위치를 지도에서 열어요.');link('네이버지도 열기 ↗','green',NAVER_URL);btn('📋 아파트 위치 복사','soft',()=>copy(ADDRESS));p('지도에서 목적지를 확인한 뒤 길찾기를 선택해 주세요.','hint');
+  }
+  dialog.classList.add('visible');dialog.setAttribute('aria-hidden','false');document.body.classList.add('lock');panel.focus();
+ }
+ async function copy(value){try{await navigator.clipboard.writeText(value);const old=actions.lastElementChild;const msg=document.createElement('p');msg.textContent='복사했어요! 📋';msg.className='hint';body.append(msg);setTimeout(()=>msg.remove(),2200)}catch{window.prompt('아래 주소를 길게 눌러 복사해주세요',value)}}
+ function openTmap(){const a=document.createElement('a');a.href=TM_SEARCH;document.body.append(a);a.click();a.remove();}
+ document.querySelectorAll('[data-open]').forEach(el=>el.addEventListener('click',()=>show(el.dataset.open)));
+ document.getElementById('close').addEventListener('click',close);
+ dialog.addEventListener('click',e=>{if(e.target===dialog)close()});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dialog.classList.contains('visible'))close();if(e.key==='Tab'&&dialog.classList.contains('visible')){const focusables=[...panel.querySelectorAll('button,a[href]')];if(!focusables.length)return;const first=focusables[0],last=focusables.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+})();
+</script>
+</body>
+</html>

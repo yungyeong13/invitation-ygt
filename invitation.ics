@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//YuniOllieHome//Family Invitation//KO
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:20261121-family-yuniolliehome@invitation-yuniolliehome
+DTSTAMP:20261019T120000Z
+DTSTART;TZID=Asia/Seoul:20261121T170000
+DTEND;TZID=Asia/Seoul:20261121T210000
+SUMMARY:윤경태러브하우스 가족 모임 🏡
+LOCATION:부산광역시 남구 문현삼성아파트
+DESCRIPTION:가족들과 함께하는 즐거운 시간!\n네이버지도: https://naver.me/xrz5P8ZK
+END:VEVENT
+END:VCALENDAR
