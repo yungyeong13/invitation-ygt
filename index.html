@@ -6,12 +6,19 @@
 <meta name="theme-color" content="#fff6e7" />
 <meta name="description" content="윤경태러브하우스 가족 초대장 · 2026년 11월 21일 토요일 오후 5시" />
 <title>🏡 윤경태러브하우스 초대장 ♡</title>
-<link rel="preload" as="image" href="assets/crayon-invitation.png" />
+<link rel="preload" as="image" href="assets/door-closed.webp" />
 <style>
 :root{font-family:system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#543a34;background:#fff6e7}*{box-sizing:border-box}body{margin:0;min-height:100vh}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}main{max-width:550px;margin:auto;box-shadow:0 8px 50px #9a694321;background:#fff6e7}.art{position:relative;width:100%;line-height:0}.art img{display:block;width:100%;height:auto}.hotspot{position:absolute;display:block;appearance:none;background:transparent;border:0;padding:0;cursor:pointer;touch-action:manipulation;border-radius:24px}.hotspot:focus-visible{outline:3px dashed #ae5a7a;outline-offset:1px;background:#ffc5d455}.date-hotspot{left:16%;top:25.3%;width:68%;height:9%}.place-hotspot{left:23%;top:36.0%;width:57%;height:8%}.house-hotspot{left:13%;top:46%;width:75%;height:25%}.calendar-hotspot{left:19%;top:72.5%;width:62%;height:6.1%}.tmap-hotspot{left:6%;top:79.0%;width:44%;height:7.0%}.naver-hotspot{left:51%;top:79.0%;width:44%;height:7.0%}.extra{margin:0;padding:12px 20px 25px;text-align:center;font-size:12px;color:#92786e;line-height:1.6}.dialog{position:fixed;inset:0;background:#4f38357a;display:none;align-items:center;justify-content:center;padding:22px;z-index:3}.dialog.visible{display:flex}.dialog-panel{position:relative;width:min(100%,390px);border-radius:28px;padding:28px 22px 22px;background:#fffaf1;box-shadow:0 20px 75px #261d1a45;text-align:center;border:3px solid #f7c2af;animation:rise .18s ease-out}@keyframes rise{from{transform:translateY(14px);opacity:.5}to{transform:translateY(0);opacity:1}}.dialog h2{font-size:23px;margin:0 0 12px}.dialog p{line-height:1.7;font-size:15px;margin:8px 0}.address{font-weight:800;font-size:20px!important;word-break:keep-all;color:#795146}.hint{font-size:12px!important;color:#806d68}.actions{display:grid;gap:10px;margin-top:19px}.action{display:block;border:0;border-radius:15px;padding:14px 12px;text-align:center;text-decoration:none;background:#f7bfc8;color:#563840;font-weight:750;line-height:1.4}.action.green{background:#d4eab9;color:#3b5831}.action.blue{background:#c5e3f7;color:#315b76}.action.soft{background:#f3e5d8;color:#684e43}.close{position:absolute;right:13px;top:11px;border:0;border-radius:50%;width:36px;height:36px;background:#f5e4db;font-size:22px;color:#735b4e}body.lock{overflow:hidden}@media(prefers-reduced-motion:reduce){.dialog-panel{animation:none}}
+
+.intro{position:fixed;inset:0;background:#fff6e7;display:grid;place-items:center;z-index:5;overflow:auto;overscroll-behavior:contain}.intro-visual{position:relative;width:min(100%,550px);margin:auto;overflow:hidden;flex-shrink:0}.intro-visual img{width:100%;height:auto;display:block}.intro-door{position:absolute;left:36%;top:48%;width:32%;height:25%;border:0;background:transparent;cursor:pointer;border-radius:30%;touch-action:manipulation}.intro-door:focus-visible{outline:4px dashed #d47280;outline-offset:1px}.intro-door::after{content:' ';position:absolute;left:50%;top:49%;width:18px;height:18px;border-radius:100%;transform:translate(-50%,-50%);background:#fff9bfaa;box-shadow:0 0 0 10px #ffdc8444;animation:knock 1.7s ease-in-out infinite}.intro-door:focus-visible::after{display:none}.intro.opening .intro-door{pointer-events:none}.intro.opening .intro-closed{opacity:0;transition:opacity .65s ease}.intro-opened{position:absolute;inset:0;opacity:0;transition:opacity .75s ease;pointer-events:none}.intro.opening .intro-opened{opacity:1}.intro.exit{opacity:0;pointer-events:none;transition:opacity .55s ease}.intro.hidden{display:none}@keyframes knock{0%,100%{opacity:.32;transform:translate(-50%,-50%) scale(.7)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.4)}}@media(prefers-reduced-motion:reduce){.intro-door::after{animation:none}.intro.exit,.intro.opening .intro-closed,.intro-opened{transition:none}}
 </style>
 </head>
 <body>
+<section id="intro" class="intro" aria-label="초대장 문 열기"><div class="intro-visual">
+<img class="intro-closed" src="assets/door-closed.webp" alt="문이 닫힌 윤경태러브하우스. 문을 터치해주세요!" fetchpriority="high" />
+<img class="intro-opened" src="assets/door-open.webp" alt="문이 열렸어요! 어서 들어오세요!" />
+<button type="button" id="intro-door" class="intro-door" aria-label="우리집 현관문을 터치해 초대장 열기"></button>
+</div></section>
 <main>
   <div class="art">
     <img src="assets/crayon-invitation.png" alt="크레파스로 그린 윤경태러브하우스 가족 초대장. 2026년 11월 21일 토요일 오후 5시. 함께 즐거운 시간 보내요!" />
@@ -22,7 +29,7 @@
     <button class="hotspot tmap-hotspot" aria-label="티맵에서 아파트 찾기" data-open="tmap"></button>
     <button class="hotspot naver-hotspot" aria-label="네이버지도에서 아파트 보기" data-open="naver"></button>
   </div>
-  <p class="extra">그림 속 우리 둘이나 집을 톡 눌러봐요! 🏠♡<br />지도에는 아파트 위치가 표시되고, 상세 동·호수는 초대장에서 확인할 수 있어요.</p>
+  <p class="extra">그림 속 우리 둘이나 집을 톡 눌러봐요! 🏠♡<br />지도에는 아파트 위치가 표시되고, 상세 동·호수는 가족에게 별도로 안내해요.</p>
 </main>
 <div id="dialog" class="dialog" role="presentation" aria-hidden="true">
  <section class="dialog-panel" role="dialog" aria-modal="true" aria-labelledby="dialog-title" tabindex="-1">
@@ -65,6 +72,15 @@
  document.getElementById('close').addEventListener('click',close);
  dialog.addEventListener('click',e=>{if(e.target===dialog)close()});
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dialog.classList.contains('visible'))close();if(e.key==='Tab'&&dialog.classList.contains('visible')){const focusables=[...panel.querySelectorAll('button,a[href]')];if(!focusables.length)return;const first=focusables[0],last=focusables.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+})();
+</script>
+<script>
+(() => {
+ const intro=document.getElementById('intro');const door=document.getElementById('intro-door');let opened=false;
+ function enter(){if(opened)return;opened=true;intro.classList.add('opening');const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;setTimeout(()=>{intro.classList.add('exit');setTimeout(()=>{intro.classList.add('hidden');document.body.style.overflow='';},reduced?0:570)},reduced?200:1450)}
+ door.addEventListener('click',enter);document.body.style.overflow='hidden';
+ // Opening artwork can also be tapped if door bounding box does not match screen zoom.
+ intro.querySelector('.intro-visual').addEventListener('click',e=>{if(e.target.tagName==='IMG')enter()});
 })();
 </script>
 </body>
