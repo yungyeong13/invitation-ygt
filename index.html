@@ -51,7 +51,7 @@
   if(kind==='address'){
    title.textContent='🏡 우리 집은 여기!';p('문현삼성아파트','address');p('상세 동·호수는 가족에게 따로 알려드릴게요 ♡');btn('📋 주소 복사','soft',()=>copy(ADDRESS));link('🟢 네이버지도에서 보기','green',NAVER_URL);btn('🚙 티맵에서 찾기','blue',openTmap);
   } else if(kind==='calendar'){
-   title.textContent='📅 날짜 잊지 않기!';p('2026년 11월 21일 (토)');p('오후 5:00 ~ 오후 9:00','address');p('휴대폰 캘린더에 모임을 저장해요.');link('🍎 iPhone · 기본 캘린더용 일정 파일','soft','invitation.ics');link('🗓️ Google 캘린더에 추가','green',GCAL);p('아이폰은 일정 파일을 연 뒤 추가를 눌러주세요. 안드로이드에서는 Google 캘린더 버튼을 추천해요.','hint');
+   title.textContent='📅 날짜 잊지 않기!';p('2026년 11월 21일 (토)');p('오후 5:00 ~ 오후 9:00','address');p('휴대폰 캘린더에 모임을 저장해요.');const isAndroid=/Android/i.test(navigator.userAgent);if(isAndroid){link('📱 갤럭시 · 일정 파일 열기 (.ics)','green','invitation.ics');link('🗓️ Google 캘린더 웹으로 추가 (대안)','soft',GCAL);p('일정 파일을 누르면 삼성 캘린더 또는 파일 다운로드 창이 열릴 수 있어요. 다운로드됐다면 내 파일 → 다운로드 → invitation.ics를 열어 일정을 추가해 주세요. 삼성 캘린더가 파일을 지원하지 않는 기종에서는 Google 캘린더를 이용해 주세요.','hint')}else{link('🍎 iPhone · 기본 캘린더에 추가','green','invitation.ics');link('🗓️ Google 캘린더에 추가 (대안)','soft',GCAL);p('아이폰은 일정 파일을 연 뒤 캘린더에 추가해 주세요.','hint')}
   } else if(kind==='tmap'){
    title.textContent='🚙 티맵으로 찾아오기';p('문현삼성아파트를 티맵에서 검색해요.');btn('티맵 앱 실행하기','blue',openTmap);btn('📋 목적지 검색어 복사','soft',()=>copy(BUILDING));link('네이버지도에서 대신 확인','green',NAVER_URL);p('티맵 앱이 설치되어 있지 않거나 카카오톡 브라우저에서 열리지 않으면 검색어를 복사해 티맵 앱에서 찾아주세요.','hint');
   } else if(kind==='naver'){
